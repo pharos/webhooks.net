@@ -107,8 +107,8 @@
         [JsonPropertyName("author_association")]
         public AuthorAssociation AuthorAssociation { get; init; }
 
-        [JsonPropertyName("auto_merge")]
-        public bool AutoMerge { get; init; }
+        [JsonPropertyName("auto_merge")] 
+        public bool? AutoMerge { get; init; }
 
         [JsonPropertyName("active_lock_reason")]
         public ActiveLockReason? ActiveLockReason { get; init; }
