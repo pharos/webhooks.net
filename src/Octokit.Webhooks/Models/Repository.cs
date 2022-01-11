@@ -1,4 +1,7 @@
-﻿namespace Octokit.Webhooks.Models
+﻿using System;
+using Octokit.Webhooks.Converter;
+
+namespace Octokit.Webhooks.Models
 {
     using System.Text.Json.Serialization;
     using JetBrains.Annotations;
@@ -144,14 +147,14 @@
         [JsonPropertyName("deployments_url")]
         public string DeploymentsUrl { get; init; } = null!;
 
-        [JsonPropertyName("created_at")]
-        public string? CreatedAt { get; init; }
+        [JsonPropertyName("created_at"), JsonConverter(typeof(UnixToNullableDateTimeConverter))]
+        public DateTimeOffset? CreatedAt { get; init; }
 
-        [JsonPropertyName("updated_at")]
-        public string UpdatedAt { get; init; } = null!;
+        [JsonPropertyName("updated_at"), JsonConverter(typeof(UnixToNullableDateTimeConverter))]
+        public DateTimeOffset? UpdatedAt { get; init; } = null!;
 
-        [JsonPropertyName("pushed_at")]
-        public string? PushedAt { get; init; }
+        [JsonPropertyName("pushed_at"), JsonConverter(typeof(UnixToNullableDateTimeConverter))]
+        public DateTimeOffset? PushedAt { get; init; }
 
         [JsonPropertyName("git_url")]
         public string GitUrl { get; init; } = null!;
