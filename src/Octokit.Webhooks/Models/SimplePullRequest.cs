@@ -1,4 +1,6 @@
-﻿namespace Octokit.Webhooks.Models
+﻿using Octokit.Webhooks.Models.PullRequestEvent;
+
+namespace Octokit.Webhooks.Models
 {
     using System.Collections.Generic;
     using System.Text.Json.Serialization;
@@ -109,8 +111,8 @@
         [JsonPropertyName("author_association")]
         public AuthorAssociation AuthorAssociation { get; init; }
 
-        [JsonPropertyName("auto_merge")] 
-        public bool? AutoMerge { get; init; }
+        [JsonPropertyName("auto_merge")]
+        public PullRequestAutoMerge AutoMerge { get; init; } = null!;
 
         [JsonPropertyName("active_lock_reason")]
         public ActiveLockReason? ActiveLockReason { get; init; }
